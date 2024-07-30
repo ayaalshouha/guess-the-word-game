@@ -1,5 +1,73 @@
 * {
   box-sizing: border-box;
-  border: 0;
+}
+body {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eee;
+}
+:root {
+  --primary-color: #f44336;
+}
+h1 {
+  text-align: center;
+  padding: 20px;
+  margin: 0 0 50px;
+  background-color: white;
+}
+
+.guess-game {
+  text-align: center;
+  width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  /* game area style */
+  .game-area {
+    text-align: center;
+  }
+
+  /* key colors style */
+
+  .key-colors {
+    .key-color {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background-color: white;
+      margin-bottom: 15px;
+
+      /* each key -- there is a 3 keys */
+      .key {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+
+        &.in-place {
+          background-color: #f89e13;
+        }
+
+        &.not-in-place {
+          background-color: #18ba89;
+        }
+
+        &.wrong {
+          background-color: #27303f;
+        }
+      }
+
+      /* styling the keys text */
+      .key-text {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
 }
