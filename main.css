@@ -27,8 +27,58 @@ h1 {
   /* game area style */
   .game-area {
     .inputs {
-      /* direct child in inputs */
+      /* direct child in inputs (try-div class)*/
       > div {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        span {
+          font-size: 30px;
+          font-weight: bold;
+          margin-right: 15px;
+        }
+
+        input {
+          width: 60px;
+          height: 60px;
+          text-align: center;
+          font-size: 50px;
+          caret-color: var(--primary-color);
+          background-color: white;
+          border: none;
+          border-bottom: 3px solid #333;
+
+          /* on focus */
+          &:focus {
+            outline-color: #ccc;
+          }
+
+          &.in-place {
+            background-color: #18ba89;
+            border: #18ba89;
+            color: white;
+          }
+  
+          &.not-in-place {
+            background-color: #f89e13;
+            border: #f89e13;
+            color: white;
+          }
+  
+          &.wrong {
+            background-color: #cb3c3c;
+            color: white;
+            border: #cb3c3c;
+          }
+        }
+      }
+      .disabled {
+        opacity: 0.5;
+        /* disable functionality */
+        pointer-events: none;
       }
     }
   }
@@ -55,15 +105,15 @@ h1 {
         -o-border-radius: 50%;
 
         &.in-place {
-          background-color: #f89e13;
-        }
-
-        &.not-in-place {
           background-color: #18ba89;
         }
 
+        &.not-in-place {
+          background-color: #f89e13;
+        }
+
         &.wrong {
-          background-color: #27303f;
+          background-color: #cb3c3c;
         }
       }
 

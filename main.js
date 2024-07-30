@@ -21,7 +21,11 @@ function generateInputs() {
     try_div.classList.add(`try-${i}`);
     try_div.innerHTML = `<span >Try ${i}</span>`;
 
-    if (i !== 1) try_div.classList.add = "disabled";
+    if (i !== 1){
+     try_div.classList.add("disabled");
+    }
+        
+
 
     //create inputs for each trial
     for (let j = 1; j <= number_of_letters; j++) {
@@ -34,7 +38,7 @@ function generateInputs() {
 
     input_container.appendChild(try_div);
   }
-  
+
   input_container.children[0].children[1].focus();
 }
 
