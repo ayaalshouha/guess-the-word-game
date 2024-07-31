@@ -80,6 +80,14 @@ function generateInputs() {
   });
 }
 
+hintBtn.addEventListener("click", hintProcess); 
+
+function hintProcess(){
+
+}
+
+
+
 guessBtn.addEventListener("click", checkGuess);
 console.log(word_to_guess);
 
@@ -113,7 +121,7 @@ function checkGuess() {
     // add disabled class to all try divs
     let all_try_divs = document.querySelectorAll(".inputs > div");
     all_try_divs.forEach((try_div) => try_div.classList.add("disabled"));
-    //disable buttons
+    //disable buttons after finish game
     guessBtn.disabled = true;
     hintBtn.disabled = true;
   } else {
@@ -132,8 +140,12 @@ function checkGuess() {
       next_try_inputs = document.querySelectorAll(`.try-${current_try} input`);
       next_try_inputs.forEach((input) => (input.disabled = false));
       next_try_inputs[0].focus();
-    } else
+    } else {
       message_area.innerHTML = `Game Over :-( ! The Word is <span>${word_to_guess}</span>`;
+      //disable buttons after finish game
+      guessBtn.disabled = true;
+      hintBtn.disabled = true;
+    }
   }
 }
 
