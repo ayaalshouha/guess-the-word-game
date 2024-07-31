@@ -98,9 +98,16 @@ function getHint() {
     const empty_inputs = Array.from(enabled_inputs).filter(
       (e) => e.value === ""
     );
-    
-    for (let i = 0; i < empty_inputs; i++) {
 
+    if (empty_inputs.length > 0) {
+      const random_index = Math.floor(Math.random() * empty_inputs.length);
+      const random_input = empty_inputs[random_index]; // return as input
+      const index_to_fill = Array.from(enabled_inputs).indexOf(random_input);
+
+      if (index_to_fill !== -1) {
+        random_input.value = word_to_guess[index_to_fill].toUpperCase();
+        random_input.style = "color:var(--primary-color);";
+      }
     }
   }
 }
