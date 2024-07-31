@@ -9,10 +9,11 @@ document.querySelector(
 let number_of_trials = 6;
 let number_of_letters = 6;
 let current_try = 1;
+let number_of_hints = 2;
 let message_area = document.querySelector(".message");
 let guessBtn = document.querySelector(".check");
 let hintBtn = document.querySelector(".hint");
-
+hintBtn.children[0].innerHTML = number_of_hints;
 let words = [
   "create",
   "delete",
@@ -80,13 +81,29 @@ function generateInputs() {
   });
 }
 
-hintBtn.addEventListener("click", hintProcess); 
+hintBtn.addEventListener("click", getHint);
+function getHint() {
+  if (number_of_hints > 0) {
+    number_of_hints--;
+    hintBtn.children[0].innerHTML = number_of_hints;
 
-function hintProcess(){
+    if (number_of_hints == 0) {
+      hintBtn.disabled = true;
+    }
 
+    const enabled_inputs = document.querySelectorAll(
+      ".inputs > div:not(.disabled) input"
+    );
+
+    const empty_inputs = Array.from(enabled_inputs).filter(
+      (e) => e.value === ""
+    );
+    
+    for (let i = 0; i < empty_inputs; i++) {
+
+    }
+  }
 }
-
-
 
 guessBtn.addEventListener("click", checkGuess);
 console.log(word_to_guess);
