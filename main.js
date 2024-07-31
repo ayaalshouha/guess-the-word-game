@@ -6,10 +6,23 @@ document.querySelector(
   "footer"
 ).innerHTML = `${game_name} Game created by Aya AlShouha`;
 
-//setting game options
-let number_of_trials = 5;
+let number_of_trials = 6;
 let number_of_letters = 6;
 let current_try = 1;
+
+let words = [
+  "create",
+  "delete",
+  "master",
+  "branch",
+  "mainly",
+  "elzero",
+  "school",
+];
+
+let word_to_guess =
+  words[Math.floor(Math.random() * words.length)].toLowerCase();
+//setting game options
 
 function generateInputs() {
   const input_container = document.querySelector(".inputs");
@@ -63,6 +76,21 @@ function generateInputs() {
     });
   });
 }
+
+let guessBtn = document.querySelector("Button");
+guessBtn.addEventListener("click", checkGuess);
+
+function checkGuess() {
+  let success = true;
+  for (let i = 1; i <= number_of_letters; i++) {
+    const input_field = document.querySelector(
+      `#try-${current_try}-letter-${i}`
+    );
+    const letter = input_field.value.toLowerCase();
+    console.log(letter);
+  }
+}
+
 
 window.onload = function () {
   generateInputs();
