@@ -118,12 +118,20 @@ function checkGuess() {
     guessBtn.disabled = true;
     hintBtn.disabled = true;
   } else {
-    let curr_input = document.querySelector(`.inputs .try-${current_try}`);
-    curr_input.classList.add("disabled");
+    document
+      .querySelector(`.inputs .try-${current_try}`)
+      .classList.add("disabled");
+    let curr_try_inputs = document.querySelectorAll(`try-${current_try} input`);
+    curr_try_inputs.forEach((e) => (e.disabled = true));
+
     current_try++;
-    curr_input = document.querySelector(`.inputs .try-${current_try}`);
-    curr_input.classList.remove("disabled");
-    curr_input.forEach((input) => (input.disabled = false));
+
+    document
+      .querySelector(`.inputs .try-${current_try}`)
+      .classList.remove("disabled");
+
+    next_try_input = document.querySelectorAll(`.try-${current_try} input`);
+    next_try_input.forEach((input) => (input.disabled = false));
   }
 }
 
