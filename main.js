@@ -10,6 +10,8 @@ let number_of_trials = 6;
 let number_of_letters = 6;
 let current_try = 1;
 let message_area = document.querySelector(".message");
+let guessBtn = document.querySelector(".check");
+let hintBtn = document.querySelector(".hint");
 
 let words = [
   "create",
@@ -78,7 +80,6 @@ function generateInputs() {
   });
 }
 
-let guessBtn = document.querySelector("Button");
 guessBtn.addEventListener("click", checkGuess);
 
 console.log(word_to_guess);
@@ -107,10 +108,18 @@ function checkGuess() {
   }
   if (success) {
     message_area.innerHTML = `Congrates! You Win The Word is <span>${word_to_guess}</span>`;
+
+    // add disabled class to all try divs
+    let all_try_divs = document.querySelectorAll(".inputs > div");
+    all_try_divs.forEach((try_div) => try_div.classList.add("disabled"));
+    //disable buttons
+    guessBtn.disabled = true;
+    hintBtn.disabled = true;
   } else {
     console.log("you lose");
   }
 }
+
 window.onload = function () {
   generateInputs();
 };
