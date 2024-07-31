@@ -106,6 +106,8 @@ function checkGuess() {
       }
     }
   }
+  //result
+
   if (success) {
     message_area.innerHTML = `Congrates! You Win The Word is <span>${word_to_guess}</span>`;
 
@@ -116,7 +118,12 @@ function checkGuess() {
     guessBtn.disabled = true;
     hintBtn.disabled = true;
   } else {
-    console.log("you lose");
+    let curr_input = document.querySelector(`.inputs .try-${current_try}`);
+    curr_input.classList.add("disabled");
+    current_try++;
+    curr_input = document.querySelector(`.inputs .try-${current_try}`);
+    curr_input.classList.remove("disabled");
+    curr_input.forEach((input) => (input.disabled = false));
   }
 }
 
