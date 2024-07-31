@@ -36,7 +36,7 @@ h1 {
         gap: 8px;
 
         span {
-          font-size: 30px;
+          font-size: 20px;
           font-weight: bold;
           margin-right: 15px;
         }
@@ -115,13 +115,13 @@ h1 {
     .message{
       text-align: center;
       font-weight: bold;
-      font-size: 30px;
+      font-size: 20px;
       margin-top: 20px;
 
       span{
         font-weight: bold; 
         display: block; 
-        font-size: 50px;
+        font-size: 30px;
         color: var(--primary-color); 
         text-transform: capitalize; 
         margin-top: 10px;
@@ -178,7 +178,6 @@ h1 {
 footer {
   text-align: center;
   padding: 20px;
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
