@@ -11,7 +11,7 @@ body {
 }
 h1 {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   margin: 0 0 50px;
   background-color: white;
 }
@@ -95,7 +95,7 @@ h1 {
         color: white;
         border: none;
         border-radius: 5px;
-        padding: 15px;
+        padding: 10px;
       }
       .check {
         background-color: var(--primary-color);

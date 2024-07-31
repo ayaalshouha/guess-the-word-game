@@ -161,7 +161,9 @@ function checkGuess() {
       .querySelector(`.inputs .try-${current_try}`)
       .classList.add("disabled");
 
-    let curr_try_inputs = document.querySelectorAll(`try-${current_try} input`);
+    let curr_try_inputs = document.querySelectorAll(
+      `.try-${current_try} input`
+    );
     curr_try_inputs.forEach((e) => (e.disabled = true));
     current_try++;
 
