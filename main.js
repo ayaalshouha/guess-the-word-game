@@ -9,7 +9,7 @@ document.querySelector(
 let number_of_trials = 6;
 let number_of_letters = 6;
 let current_try = 1;
-let message_area = document.querySelector(".messsage");
+let message_area = document.querySelector(".message");
 
 let words = [
   "create",
@@ -106,7 +106,7 @@ function checkGuess() {
     }
   }
   if (success) {
-    console.log("you win");
+    message_area.innerHTML = `Congrates! You Win The Word is <span>${word_to_guess}</span>`;
   } else {
     console.log("you lose");
   }
