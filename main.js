@@ -86,11 +86,19 @@ function checkGuess() {
     const input_field = document.querySelector(
       `#try-${current_try}-letter-${i}`
     );
-    const letter = input_field.value.toLowerCase();
-    console.log(letter);
+    const current_letter = input_field.value.toLowerCase();
+    const acutal_letter = word_to_guess[i - 1];
+
+    //check process
+    if (current_letter === acutal_letter) {
+      input_field.classList.add("in-place");
+    } else if (word_to_guess.includes(current_letter)) {
+      input_field.classList.add("not-in-place");
+    } else {
+      letter.classList.add("wrong");
+    }
   }
 }
-
 
 window.onload = function () {
   generateInputs();
