@@ -68,12 +68,18 @@ function generateInputs() {
 
     //move to the next input
     e.addEventListener("keydown", function (event) {
+      //console.log(event.key );
       if (event.key === "ArrowRight") {
         const next_input = index + 1;
         if (next_input < inputs.length) inputs[next_input].focus();
       }
 
       if (event.key === "ArrowLeft") {
+        const prev_input = index - 1;
+        if (prev_input >= 0) inputs[prev_input].focus();
+      }
+      if (event.key === "Backspace") {
+        inputs[index].value = "";
         const prev_input = index - 1;
         if (prev_input >= 0) inputs[prev_input].focus();
       }
@@ -174,6 +180,10 @@ function checkGuess() {
     }
   }
 }
+
+document.addEventListener("keydown", handleBackSpace);
+
+function handleBackSpace() {}
 
 window.onload = function () {
   generateInputs();
