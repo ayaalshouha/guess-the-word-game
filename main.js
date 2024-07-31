@@ -9,6 +9,7 @@ document.querySelector(
 let number_of_trials = 6;
 let number_of_letters = 6;
 let current_try = 1;
+let message_area = document.querySelector(".messsage");
 
 let words = [
   "create",
@@ -80,26 +81,36 @@ function generateInputs() {
 let guessBtn = document.querySelector("Button");
 guessBtn.addEventListener("click", checkGuess);
 
+console.log(word_to_guess);
+
 function checkGuess() {
   let success = true;
   for (let i = 1; i <= number_of_letters; i++) {
     const input_field = document.querySelector(
       `#try-${current_try}-letter-${i}`
     );
-    const current_letter = input_field.value.toLowerCase();
+    const curr_letter = input_field.value.toLowerCase();
     const acutal_letter = word_to_guess[i - 1];
 
     //check process
-    if (current_letter === acutal_letter) {
-      input_field.classList.add("in-place");
-    } else if (word_to_guess.includes(current_letter)) {
-      input_field.classList.add("not-in-place");
-    } else {
-      letter.classList.add("wrong");
+    if (curr_letter.value !== null) {
+      if (curr_letter === acutal_letter) {
+        input_field.classList.add("in-place");
+      } else if (word_to_guess.includes(curr_letter) && curr_letter !== "") {
+        input_field.classList.add("not-in-place");
+        success = false;
+      } else {
+        input_field.classList.add("wrong");
+        success = false;
+      }
     }
   }
+  if (success) {
+    console.log("you win");
+  } else {
+    console.log("you lose");
+  }
 }
-
 window.onload = function () {
   generateInputs();
 };
