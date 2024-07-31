@@ -141,7 +141,9 @@ function checkGuess() {
 
   if (success) {
     message_area.innerHTML = `Congrates! You Win The Word is <span>${word_to_guess}</span>`;
-
+    if (number_of_hints === 2) {
+      message_area.innerHTML += `<p> and you did not use the hints :-) </p>`;
+    }
     // add disabled class to all try divs
     let all_try_divs = document.querySelectorAll(".inputs > div");
     all_try_divs.forEach((try_div) => try_div.classList.add("disabled"));
