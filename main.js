@@ -81,7 +81,6 @@ function generateInputs() {
 }
 
 guessBtn.addEventListener("click", checkGuess);
-
 console.log(word_to_guess);
 
 function checkGuess() {
@@ -121,17 +120,20 @@ function checkGuess() {
     document
       .querySelector(`.inputs .try-${current_try}`)
       .classList.add("disabled");
+
     let curr_try_inputs = document.querySelectorAll(`try-${current_try} input`);
     curr_try_inputs.forEach((e) => (e.disabled = true));
-
     current_try++;
 
-    document
-      .querySelector(`.inputs .try-${current_try}`)
-      .classList.remove("disabled");
+    let next_try = document.querySelector(`.inputs .try-${current_try}`);
 
-    next_try_input = document.querySelectorAll(`.try-${current_try} input`);
-    next_try_input.forEach((input) => (input.disabled = false));
+    if (next_try) {
+      next_try.classList.remove("disabled");
+      next_try_inputs = document.querySelectorAll(`.try-${current_try} input`);
+      next_try_inputs.forEach((input) => (input.disabled = false));
+      next_try_inputs[0].focus();
+    } else
+      message_area.innerHTML = `Game Over :-( ! The Word is <span>${word_to_guess}</span>`;
   }
 }
 
