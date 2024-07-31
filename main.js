@@ -55,6 +55,8 @@ function generateInputs() {
 
   input_container.children[0].children[1].focus();
 
+  addRandomLetter();
+
   //disable all inputs except first one
   const disabled_inputs = document.querySelectorAll(".disabled input");
   disabled_inputs.forEach((E) => (E.disabled = true));
@@ -183,9 +185,14 @@ function checkGuess() {
   }
 }
 
-document.addEventListener("keydown", handleBackSpace);
-
-function handleBackSpace() {}
+function addRandomLetter() {
+  //add 2 random letters from the word to guess
+  for (let i = 0; i < 2; i++) {
+    const all_inputs = document.querySelectorAll(`.inputs .try-${current_try} input`);
+    const rand_index = Math.floor(Math.random() * all_inputs.length);
+    all_inputs[rand_index].value = word_to_guess[rand_index].toUpperCase();
+  }
+}
 
 window.onload = function () {
   generateInputs();
